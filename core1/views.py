@@ -14,17 +14,23 @@ def abc1(request):
     }
     return render(request,template,context)
 
+
+
 @login_required()
 def empdetail(request,pk):
         qs=Employee.objects.get(id=pk)
         template="core1/empdetail.html"
         return render(request,template,{"qs":qs})
 
+
+
 @login_required()
 def empdelete(request,pk):
         qs=Employee.objects.get(id=pk)
         qs.delete()
         return redirect("abc1")
+
+
 
 @login_required()       
 def emp_form(request):
